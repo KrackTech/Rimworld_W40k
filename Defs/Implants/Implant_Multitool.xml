@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>ToolArm</defName>
+    <label>tool arm</label>
+    <labelNoun>a tool arm</labelNoun>
+    <description>An installed tool arm.</description>
+    <descriptionHyperlinks><ThingDef>ToolArm</ThingDef></descriptionHyperlinks>
+    <addedPartProps>
+      <solid>true</solid>
+    </addedPartProps>
+    <stages>
+      <li>
+        <statOffsets>
+          <WorkSpeedGlobal>1.60</WorkSpeedGlobal>
+        </statOffsets>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.1</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>drill</label>
+            <capacities>
+              <li>Stab</li>
+            </capacities>
+            <power>13</power>
+            <cooldownTime>2</cooldownTime>
+            <alwaysTreatAsWeapon>false</alwaysTreatAsWeapon>
+            <soundMeleeHit>MeleeHit_DrillArm</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_DrillArm</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+    <spawnThingOnRemoved>ToolArm</spawnThingOnRemoved>
+  </HediffDef>
+
+  <ThingDef ParentName="BodyPartProstheticImperialBase">
+    <defName>ToolArm</defName>
+    <label>tool arm</label>
+    <description>A mechanical arm replacement for speeding up mining. It has a built-in snake drill, which allows the miner to rapidly find and exploit weak lines in the rock. It also has a general-purpose manipulator. It is somewhat ungainly, which slows down movement slightly.</description>
+    <descriptionHyperlinks><RecipeDef>InstallToolArm</RecipeDef></descriptionHyperlinks>
+    <thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
+    <costList>
+      <Steel>60</Steel>
+      <ComponentIndustrial>8</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>SpecializedLimbs</researchPrerequisite>
+    </recipeMaker>
+    <techHediffsTags>
+      <li>ToolArm</li>
+    </techHediffsTags>
+  </ThingDef>
+
+  <RecipeDef ParentName="SurgeryInstallBodyPartProstheticBase">
+    <defName>InstallToolArm</defName>
+    <label>install tool arm</label>
+    <description>Install a tool arm.</description>
+    <descriptionHyperlinks>
+      <ThingDef>ToolArm</ThingDef>
+      <HediffDef>ToolArm</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing tool arm.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ToolArm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>ToolArm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Arm</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>ToolArm</addsHediff>
+  </RecipeDef>
+</Defs>
